@@ -1,0 +1,39 @@
+   	#wrapper {
+   		width: 1000px;
+   		margin: 0 auto;
+   		margin-top:200px;
+   		font-family: arial
+   	}
+
+   	#tip {
+   		background: url('images/toolTipBkrd.png');
+   		
+   		position: absolute;
+   		padding: 10px;
+   		display: none;
+   		text-align: center;
+   		color: #fff;
+   		font-size: 12px;
+
+   	}
+
+   	.toolTip {
+   		position: relative;
+   		font-size: 0;
+   		display: inline-block;
+   		*display: inline;
+		    zoom: 1;
+   		
+   	}
+   		
+   	.toolTip img {
+   		vertical-align: middle;
+   	}
+
+   	#tipArrow {
+   		background: url('images/toolTipArrow.png');
+   		position: absolute;
+   		width: 21px;
+   		height: 12px;
+   		bottom: -12px;
+   	}
