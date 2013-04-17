@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Tool Tip</title>
+
+   <style>
+   	#wrapper {
+   		width: 1000px;
+   		margin: 0 auto;
+   		position: relative;
+   		top:100px;
+   		font-family: arial
+   	}
+
+   	#tip {
+   		background: url('images/toolTipBkrd.png');
+   		
+   		position: absolute;
+   		padding: 10px;
+   		display: none;
+   		text-align: center;
+   		color: #fff;
+   		font-size: 12px;
+
+   	}
+
+   	.toolTip {
+   		position: relative;
+   		font-size: 0;
+   		display: inline-block;
+   		*display: inline;
+		zoom: 1;
+   		
+   	}
+   		
+   	.toolTip img {
+   		vertical-align: middle;
+   	}
+
+   	#tipArrow {
+   		background: url('images/toolTipArrow.png');
+   		position: absolute;
+   		width: 21px;
+   		height: 12px;
+   		bottom: -12px;
+   	}
+
+   </style>
+</head>
+	<body>
+		<div id="wrapper">
+
+			<div class="toolTip"> 	
+				We love it when you're happy! That's why we offer more styles, incredible value and easy returns.
+				<img src="images/happy-guarantee.jpg" alt="Happy Guarantee" />
+			</div>
+
+			<div class="toolTip"> 	
+				Enjoy the convenience of shopping online, and have your order shipped for free to a store near you!
+				<img src="images/free-ship.jpg" alt="Happy Guarantee" />
+			</div>
+
+			<div class="toolTip"> 	
+				Shop online without the risk. Any Payless store will happily accept returns.
+				<img src="images/return.jpg" alt="Happy Guarantee" />
+			</div>
+
+			<div class="toolTip"> 	
+				Find the style you want online then use the "FIND THIS NEAR YOU" feature to check store availability. Wear them today!
+				<img src="images/find-in-store.jpg" alt="Happy Guarantee" />
+			</div>
+		</div>
+
+
+	</body>
+
+	<script src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" async>
+	jQuery(document).ready(function($) {
+
+		(function( $ ){
+			var parentWidth, 
+				centerTipArrow, 
+				posLeft, 
+				posTop;
+
+			var defaults = { 
+        		width: 200, 
+        		top: 100
+    		};
+
+			$.fn.contentTip = function( options) {	
+		
+			//Define options we want to use
+			var options = $.extend(defaults, options);
+
+			return this.each(function(){
+			var $this = $(this);
+			$this.hover(function(){
+				
+				parentWidth = $this.width(); 
+
+				posLeft = $this.offset().left;
+				posTop = $this.offset().top;
+
+				$('#wrapper').append('<div id="tip"></div>')
+
+				//Cache .tip class 
+				var $sel = {
+					tip : $('#tip')
+				}
+
+				$sel.tip.css({
+					width: defaults.width, 
+					left: posLeft , 
+					top: posTop - defaults.top	
+				});
+
+				$sel.tip.fadeIn();
+
+				$sel.tip.text($this.text());
+
+				//Tool tip arrow
+				$sel.tip.prepend('<div id="tipArrow"></div>');
+
+		    	centerTipArrow = ($sel.tip.width() / 2) ;
+
+		    	$('#tipArrow').css({
+		    		left: centerTipArrow
+		    	});
+
+				}, function(){
+					//Remove all intances of the tool tip
+					$('#tip').remove();
+				});
+
+			});
+
+		};
+
+	})(jQuery);	
+
+		$('.toolTip').contentTip();
+
+	});
+	</script>
+</html>
