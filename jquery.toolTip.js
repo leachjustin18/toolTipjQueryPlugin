@@ -23,7 +23,7 @@
 				posLeft = $this.offset().left;
 				posTop = $this.offset().top;
 
-				$('#wrapper').append('<div id="tip"></div>')
+				$('body').append('<div id="tip"></div>')
 
 				//Cache .tip class 
 				var $sel = {

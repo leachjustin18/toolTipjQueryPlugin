@@ -1,13 +1,14 @@
    	#wrapper {
    		width: 1000px;
    		margin: 0 auto;
-   		margin-top:200px;
+   		top:100px;
+         position: relative;
    		font-family: arial
    	}
 
    	#tip {
    		background: url('images/toolTipBkrd.png');
-   		
+		   font-family:Arial, Helvetica, sans-serif;
    		position: absolute;
    		padding: 10px;
    		display: none;
