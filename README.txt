@@ -1,0 +1,1 @@
+Created a jQuery plugin that will hover over a image/or other content as put within the class. It will grab the text within such class and put it within the tool tip.  Options are width and top
